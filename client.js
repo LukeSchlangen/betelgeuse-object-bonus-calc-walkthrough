@@ -21,6 +21,7 @@ function compensationCalculator(employee) {
     employeeCompensation.name = employee.name;
 
     // add bonusPercentage to employeeCompensation
+    employeeCompensation.bonusPercentage = bonusPercentageCalculator(employee);
 
     // add totalCompensation to employeeCompensation
 
@@ -29,5 +30,22 @@ function compensationCalculator(employee) {
     return employeeCompensation;
 }
 
+function bonusPercentageCalculator(employee) {
+    var bonusPercentage;
+
+    if (employee.reviewRating == 5) {
+        bonusPercentage = .1;
+    } else if (employee.reviewRating == 4) {
+        bonusPercentage = .06;
+    } else if (employee.reviewRating == 3) {
+        bonusPercentage = .04;
+    } else if (employee.reviewRating <= 2) {
+        bonusPercentage = 0;
+    }
+
+    return bonusPercentage;
+}
+
 console.log(compensationCalculator(atticus));
+console.log(compensationCalculator(jem));
 
