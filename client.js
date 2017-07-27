@@ -9,4 +9,22 @@ var employees = [ atticus, jem, boo, scout, robert, mayella ];
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
-console.log(employees);
+// console.log(employees);
+
+// console.log(employees[0].employeeNumber);
+
+function compensationCalculator(employee) {
+    var employeeCompensation = {};
+    // add name to employeeCompensation
+
+    // add bonusPercentage to employeeCompensation
+
+    // add totalCompensation to employeeCompensation
+
+    // add totalBonus to employeeCompensation
+
+    return employeeCompensation;
+}
+
+console.log(compensationCalculator(jem));
+
