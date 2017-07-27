@@ -33,6 +33,7 @@ function compensationCalculator(employee) {
 function bonusPercentageCalculator(employee) {
     var bonusPercentage;
 
+    // Creating base bonusPercentage based on review rating
     if (employee.reviewRating == 5) {
         bonusPercentage = .1;
     } else if (employee.reviewRating == 4) {
@@ -43,9 +44,27 @@ function bonusPercentageCalculator(employee) {
         bonusPercentage = 0;
     }
 
+    // adding 5% bonus for employees here longer than 15 years (employee numbers with 4 digits)
+    if (employee.employeeNumber.length == 4) {
+        bonusPercentage += .05;
+    }
+
+    // removing 1% of bonus for employees who make over 65000
+    if (employee.annualSalary > 65000) {
+        bonusPercentage -= .01;
+    }
+
+    // No bonus can be above 13% or below 0% total.
+    if (bonusPercentage > .13) {
+        bonusPercentage = .13;
+    } else if (bonusPercentage < 0) {
+        bonusPercentage = 0;
+    }    
+
     return bonusPercentage;
 }
 
-console.log(compensationCalculator(atticus));
-console.log(compensationCalculator(jem));
+for (var i = 0; i < employees.length; i++) {
+    console.log(compensationCalculator(employees[i]));
+}
 
