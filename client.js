@@ -23,9 +23,11 @@ function compensationCalculator(employee) {
     // add bonusPercentage to employeeCompensation
     employeeCompensation.bonusPercentage = bonusPercentageCalculator(employee);
 
-    // add totalCompensation to employeeCompensation
-
     // add totalBonus to employeeCompensation
+    employeeCompensation.totalBonus = totalBonusCalculator(employee.annualSalary, employeeCompensation.bonusPercentage);
+
+    // add totalCompensation to employeeCompensation
+    employeeCompensation.totalCompensation = parseInt(employee.annualSalary) + employeeCompensation.totalBonus;
 
     return employeeCompensation;
 }
@@ -62,6 +64,11 @@ function bonusPercentageCalculator(employee) {
     }    
 
     return bonusPercentage;
+}
+
+function totalBonusCalculator(annualSalary, bonusPercentage) {
+    var totalBonus = annualSalary * bonusPercentage;
+    return totalBonus;
 }
 
 for (var i = 0; i < employees.length; i++) {
